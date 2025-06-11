@@ -4,7 +4,11 @@ var request = require('request');
 
 
 router.get('/', function(req, res, next) {
-  request('https://api.nasa.gov/planetary/apod?api_key=Yl3xz73jE32IbEoPe4X2TIsFqQESAfACZdjeCbrg&count=1', function (error, response, body) {
+  require('dotenv').config();
+
+const apiKey = process.env.NASA_API_KEY;
+const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=1`;
+  request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       const item = data[0];
