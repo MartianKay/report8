@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 // 接続情報を設定
 const { MongoClient } = require("mongodb");
-const uri = "mongodb+srv://kay:kay@cluster0.toa2vph.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://kay:@cluster0.toa2vph.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(uri);
 router.get('/', async (req, res) => {
 // データベース、コレクションを指定
